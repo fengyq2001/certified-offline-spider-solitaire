@@ -1,0 +1,8 @@
+dist/*
+!dist/index.html
+artifacts/
+*.log
+.DS_Store
+._*
+release/
+prototype.html

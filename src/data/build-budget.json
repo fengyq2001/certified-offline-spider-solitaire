@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "maximumBundleBytes": 8388608,
+  "maximumRuntimeSourceBytes": 2097152,
+  "maximumAssetBytes": 2097152,
+  "maximumManifestBytes": 2097152
+}

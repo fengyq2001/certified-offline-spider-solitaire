@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "seedLibraryVersion": "fixture-v1",
+  "maximumEmbeddedCount": 3,
+  "maximumEmbeddedBytes": 256,
+  "totalEmbeddedCount": 2,
+  "totalEncodedBytes": 96,
+  "buckets": {
+    "1s.easy": {
+      "enabled": true,
+      "allowEmptyBucket": false,
+      "minimumPublishableCount": 2,
+      "actualCount": 3,
+      "embeddedTarget": 2,
+      "embeddedCount": 2,
+      "encodedBytes": 96,
+      "deals": [
+        {"dealId": "fixture-deal-1", "canonicalSeed": "u64:0000000000000001", "status": "certified"},
+        {"dealId": "fixture-deal-2", "canonicalSeed": "u64:0000000000000002", "status": "certified"}
+      ]
+    },
+    "4s.demon": {
+      "enabled": true,
+      "allowEmptyBucket": true,
+      "minimumPublishableCount": 0,
+      "actualCount": 0,
+      "embeddedTarget": 0,
+      "embeddedCount": 0,
+      "encodedBytes": 0,
+      "deals": []
+    },
+    "2s.hard": {
+      "enabled": false,
+      "allowEmptyBucket": false,
+      "minimumPublishableCount": 0,
+      "actualCount": 0,
+      "embeddedTarget": 0,
+      "embeddedCount": 0,
+      "encodedBytes": 0,
+      "deals": []
+    }
+  }
+}

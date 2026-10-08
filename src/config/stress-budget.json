@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "minimumEngineActions": 100000,
+  "maximumActionP95Ms": 25,
+  "maximumHeapGrowthBytes": 67108864,
+  "maximumHeapGrowthSlopeBytesPerAction": 1024,
+  "maximumPeakResidentSetBytes": 536870912,
+  "allowedFailures": 0
+}

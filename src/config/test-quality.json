@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "coreCoverage": {
+    "minimumLinePercent": 90,
+    "minimumBranchPercent": 75,
+    "minimumFunctionPercent": 90
+  },
+  "coreMutation": {
+    "minimumScorePercent": 80,
+    "minimumMutants": 8
+  }
+}

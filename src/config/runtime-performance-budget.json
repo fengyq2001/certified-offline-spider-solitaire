@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "parseIterations": 500,
+  "parseWarmupIterations": 50,
+  "startupProxyIterations": 50,
+  "startupProxyWarmupIterations": 5,
+  "selectionIterations": 5000,
+  "selectionWarmupIterations": 500,
+  "maximumManifestPayloadParseP50Ms": 8,
+  "maximumManifestPayloadParseP95Ms": 10,
+  "maximumStartupProxyP50Ms": 110,
+  "maximumStartupProxyP95Ms": 125,
+  "maximumSeedSelectionP50Ms": 2.5,
+  "maximumSeedSelectionP95Ms": 5,
+  "maximumNodeHeapGrowthBytes": 67108864,
+  "maximumNodePeakResidentSetBytes": 805306368
+}

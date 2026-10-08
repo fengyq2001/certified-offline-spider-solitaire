@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "ruleVersion": "1.0",
+  "generatorVersion": "1",
+  "fixtures": [
+    {
+      "canonicalSeed": "u64:0123456789abcdef",
+      "suitMode": 1,
+      "dealId": "9d4678770d539206ff806a014dcd5a8347302d846916f842464e00d7133199c1",
+      "initialDealHash": "22a75116f7c27d9961427c3a9742fd2ea9808c71a9dc0a1762efcf7132b3da5e"
+    },
+    {
+      "canonicalSeed": "u64:0123456789abcdef",
+      "suitMode": 2,
+      "dealId": "18c06a35c792f7ad2a3c93259f7d3c605d4f56922b572d2164bcbcca42499e5c",
+      "initialDealHash": "7ae6e58ef1a879aff8d0f759f64a443d12560c73f11c60d9f1a6f15ecbf620f8"
+    },
+    {
+      "canonicalSeed": "u64:0123456789abcdef",
+      "suitMode": 4,
+      "dealId": "edefceb19f184f2b94934c650a0f7284ac01c289dbf3cd9003dbf81c9721b9a5",
+      "initialDealHash": "d946cd743b026aef4be2d21a174757012c1cb8926d43f93cd888ab061b168851"
+    }
+  ]
+}

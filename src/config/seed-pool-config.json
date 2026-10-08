@@ -1,0 +1,105 @@
+{
+  "configVersion": 1,
+  "ruleVersion": "1.0",
+  "generatorVersion": "1",
+  "buckets": {
+    "1s.easy": {
+      "enabled": true,
+      "candidateScanBudget": 125,
+      "certifiedTarget": 125,
+      "embeddedTarget": 125,
+      "minimumPublishableCount": 125,
+      "allowEmptyBucket": false
+    },
+    "1s.medium": {
+      "enabled": true,
+      "candidateScanBudget": 125,
+      "certifiedTarget": 125,
+      "embeddedTarget": 125,
+      "minimumPublishableCount": 125,
+      "allowEmptyBucket": false
+    },
+    "1s.hard": {
+      "enabled": true,
+      "candidateScanBudget": 125,
+      "certifiedTarget": 125,
+      "embeddedTarget": 125,
+      "minimumPublishableCount": 125,
+      "allowEmptyBucket": false
+    },
+    "1s.demon": {
+      "enabled": true,
+      "candidateScanBudget": 125,
+      "certifiedTarget": 125,
+      "embeddedTarget": 125,
+      "minimumPublishableCount": 125,
+      "allowEmptyBucket": false
+    },
+    "2s.easy": {
+      "enabled": true,
+      "candidateScanBudget": 5000,
+      "certifiedTarget": 5000,
+      "embeddedTarget": 5000,
+      "minimumPublishableCount": 5000,
+      "allowEmptyBucket": false
+    },
+    "2s.medium": {
+      "enabled": true,
+      "candidateScanBudget": 5000,
+      "certifiedTarget": 5000,
+      "embeddedTarget": 5000,
+      "minimumPublishableCount": 5000,
+      "allowEmptyBucket": false
+    },
+    "2s.hard": {
+      "enabled": true,
+      "candidateScanBudget": 1000,
+      "certifiedTarget": 1000,
+      "embeddedTarget": 1000,
+      "minimumPublishableCount": 1000,
+      "allowEmptyBucket": false
+    },
+    "2s.demon": {
+      "enabled": true,
+      "candidateScanBudget": 1000,
+      "certifiedTarget": 1000,
+      "embeddedTarget": 1000,
+      "minimumPublishableCount": 1000,
+      "allowEmptyBucket": false
+    },
+    "4s.easy": {
+      "enabled": true,
+      "candidateScanBudget": 2,
+      "certifiedTarget": 2,
+      "embeddedTarget": 2,
+      "minimumPublishableCount": 2,
+      "allowEmptyBucket": false
+    },
+    "4s.medium": {
+      "enabled": true,
+      "candidateScanBudget": 2,
+      "certifiedTarget": 2,
+      "embeddedTarget": 2,
+      "minimumPublishableCount": 2,
+      "allowEmptyBucket": false
+    },
+    "4s.hard": {
+      "enabled": true,
+      "candidateScanBudget": 2,
+      "certifiedTarget": 2,
+      "embeddedTarget": 2,
+      "minimumPublishableCount": 2,
+      "allowEmptyBucket": false
+    },
+    "4s.demon": {
+      "enabled": true,
+      "candidateScanBudget": 2,
+      "certifiedTarget": 2,
+      "embeddedTarget": 2,
+      "minimumPublishableCount": 2,
+      "allowEmptyBucket": false
+    }
+  },
+  "maximumEmbeddedCount": 16384,
+  "maximumEmbeddedBytes": 8388608
+}

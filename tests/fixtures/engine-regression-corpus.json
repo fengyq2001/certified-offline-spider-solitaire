@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "seed": "u64:0000000000000101",
+      "suitMode": 1,
+      "actions": [{"type":"move","from":0,"to":6,"count":1},{"type":"deal"},{"type":"move","from":2,"to":3,"count":1},{"type":"move","from":8,"to":0,"count":1},{"type":"deal"},{"type":"move","from":1,"to":3,"count":1},{"type":"move","from":8,"to":9,"count":1},{"type":"move","from":3,"to":9,"count":2},{"type":"move","from":5,"to":8,"count":1},{"type":"move","from":5,"to":1,"count":1},{"type":"deal"},{"type":"move","from":9,"to":2,"count":1},{"type":"move","from":7,"to":0,"count":1},{"type":"move","from":2,"to":8,"count":1},{"type":"move","from":4,"to":3,"count":1},{"type":"move","from":9,"to":6,"count":3},{"type":"deal"},{"type":"move","from":0,"to":8,"count":1},{"type":"move","from":2,"to":3,"count":1},{"type":"deal"}],
+      "expectedBoardDigest": "bf67b11718c00ffd521b186be6d279fababa567ed56e64a491bfb58a14e21854"
+    },
+    {
+      "seed": "u64:0000000000000202",
+      "suitMode": 2,
+      "actions": [{"type":"move","from":7,"to":0,"count":1},{"type":"deal"},{"type":"move","from":4,"to":0,"count":1},{"type":"move","from":2,"to":1,"count":1},{"type":"move","from":0,"to":1,"count":1},{"type":"move","from":6,"to":0,"count":1},{"type":"move","from":4,"to":7,"count":1},{"type":"deal"},{"type":"move","from":5,"to":4,"count":1},{"type":"move","from":1,"to":6,"count":1},{"type":"move","from":4,"to":2,"count":1},{"type":"move","from":3,"to":7,"count":1},{"type":"move","from":5,"to":8,"count":1},{"type":"move","from":7,"to":1,"count":1},{"type":"move","from":1,"to":7,"count":1},{"type":"deal"},{"type":"move","from":4,"to":1,"count":1},{"type":"deal"},{"type":"move","from":9,"to":7,"count":2},{"type":"move","from":3,"to":6,"count":1}],
+      "expectedBoardDigest": "0c139cfb327d41ece1142fa0403c5e203a8eeb5463937325fd479f8c16ef7699"
+    },
+    {
+      "seed": "u64:0000000000000404",
+      "suitMode": 4,
+      "actions": [{"type":"move","from":5,"to":4,"count":1},{"type":"move","from":2,"to":5,"count":1},{"type":"move","from":8,"to":4,"count":1},{"type":"move","from":3,"to":2,"count":1},{"type":"move","from":8,"to":0,"count":1},{"type":"move","from":6,"to":9,"count":1},{"type":"move","from":3,"to":1,"count":1},{"type":"deal"},{"type":"move","from":7,"to":1,"count":1},{"type":"move","from":2,"to":1,"count":1},{"type":"deal"},{"type":"move","from":7,"to":0,"count":1},{"type":"move","from":8,"to":5,"count":1},{"type":"deal"},{"type":"move","from":4,"to":8,"count":1},{"type":"move","from":7,"to":1,"count":1},{"type":"move","from":5,"to":0,"count":1},{"type":"move","from":6,"to":0,"count":2},{"type":"move","from":9,"to":2,"count":1},{"type":"deal"}],
+      "expectedBoardDigest": "6271eef8b42329ba88ac82fadf4f49cdeab7cb5bd4648ffb38bcd6398edf8425"
+    }
+  ]
+}

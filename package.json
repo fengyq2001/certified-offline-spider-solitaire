@@ -1,0 +1,30 @@
+{
+  "name": "certified-offline-spider-solitaire",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*/*.test.js",
+    "seeds": "node scripts/generate-seeds.js",
+    "seeds:native": "node scripts/generate-native-seeds.js --promote",
+    "seeds:import-toranpu-12": "node scripts/import-toranpu-12-seeds.js",
+    "seeds:import-toranpu-2s-hard-demon": "node scripts/import-toranpu-2s-hard-demon.js",
+    "seeds:import-toranpu-4s": "node scripts/import-toranpu-4s-seeds.js",
+    "calibration:prepare": "node scripts/prepare-calibration.js",
+    "calibration:evaluate": "node scripts/evaluate-calibration.js",
+    "calibration:known-seeds": "node scripts/generate-known-seed-calibration.js",
+    "calibration:apply-known-seeds": "node scripts/apply-known-seed-calibration.js",
+  "calibration:apply-anchor-guided-2s": "node scripts/apply-anchor-guided-2s-calibration.js",
+  "seeds:expand-anchor-guided-2s": "node scripts/expand-anchor-guided-2s.js",
+    "quality:coverage": "node scripts/verify-core-coverage.js",
+    "quality:mutation": "node scripts/run-core-mutation-tests.js",
+    "benchmark:runtime": "node --expose-gc scripts/benchmark-runtime.js",
+    "benchmark:solver": "node scripts/benchmark-native-solver.js",
+    "stress": "node --expose-gc scripts/stress-engine.js",
+    "build": "node scripts/build-single.js",
+    "verify:certificates": "node scripts/verify-certified-library.js",
+    "verify:licenses": "node scripts/verify-licenses.js",
+    "verify:dist": "node scripts/verify-dist.js",
+    "verify": "npm test && npm run quality:coverage && npm run quality:mutation && npm run stress && npm run verify:certificates && npm run benchmark:runtime && npm run build && npm run verify:licenses && npm run verify:dist"
+  }
+}

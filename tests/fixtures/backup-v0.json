@@ -1,0 +1,31 @@
+{
+  "exportedAt": 1,
+  "runtimeVersion": "0.0.0",
+  "users": [
+    {"profileId": "legacy-a", "name": "Legacy A"}
+  ],
+  "saveGames": [
+    {
+      "saveVersion": 0,
+      "userId": "legacy-a",
+      "seedId": "legacy-deal-1",
+      "board": {"turn": 3},
+      "ruleVersion": "1.0",
+      "generatorVersion": "1",
+      "seedLibraryVersion": "legacy"
+    }
+  ],
+  "completedSeeds": [
+    {"profileId": "legacy-a", "dealId": "legacy-deal-1", "completedAt": 1}
+  ],
+  "statistics": [
+    {"profileId": "legacy-a", "dealId": "stats:1s.easy", "gamesStarted": 1, "gamesWon": 1}
+  ],
+  "gameHistory": [],
+  "preferences": [
+    {"profileId": "legacy-a", "dealId": "__preferences__", "value": {"sound": false}}
+  ],
+  "meta": [
+    {"key": "currentProfileId", "value": "legacy-a"}
+  ]
+}

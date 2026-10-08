@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:certified-spider:resolved-seed-manifest:v1",
+  "title": "Resolved Certified Spider seed manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "configVersion",
+    "createdAt",
+    "payloadSchemaVersion",
+    "seedLibraryVersion",
+    "ruleVersion",
+    "generatorVersion",
+    "solverVersion",
+    "solverConfigHash",
+    "validatorVersion",
+    "classifierVersion",
+    "calibrationDatasetHash",
+    "classificationCatalogHash",
+    "classificationStatus",
+    "configHash",
+    "payloadHash",
+    "libraryHash",
+    "certificateCatalogHash",
+    "maximumEmbeddedCount",
+    "maximumEmbeddedBytes",
+    "buckets",
+    "payloadIndex",
+    "deals",
+    "totalEmbeddedCount",
+    "totalEncodedBytes"
+  ],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "configVersion": {"type": "integer", "minimum": 1},
+    "createdAt": {"type": "string", "format": "date-time"},
+    "payloadSchemaVersion": {"enum": [1, 2]},
+    "seedLibraryVersion": {"type": "string", "minLength": 1},
+    "parentLibraryVersion": {"type": ["string", "null"]},
+    "minRuntimeVersion": {"type": "string", "minLength": 1},
+    "maxRuntimeVersion": {"type": "string", "minLength": 1},
+    "ruleVersion": {"type": "string", "minLength": 1},
+    "generatorVersion": {"type": "string", "minLength": 1},
+    "solverVersion": {"type": "string", "minLength": 1},
+    "solverConfigHash": {"$ref": "#/$defs/sha256"},
+    "validatorVersion": {"type": "string", "minLength": 1},
+    "classifierVersion": {"type": "string", "minLength": 1},
+    "calibrationDatasetHash": {"$ref": "#/$defs/sha256"},
+    "classificationCatalogHash": {"$ref": "#/$defs/sha256"},
+    "classificationStatus": {"enum": ["provisional", "formal"]},
+    "configHash": {"$ref": "#/$defs/sha256"},
+    "payloadHash": {"$ref": "#/$defs/sha256"},
+    "libraryHash": {"$ref": "#/$defs/sha256"},
+    "certificateCatalogHash": {"$ref": "#/$defs/sha256"},
+    "maximumEmbeddedCount": {"type": "integer", "minimum": 0},
+    "maximumEmbeddedBytes": {"type": "integer", "minimum": 0},
+    "buckets": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[124]s\\.(easy|medium|hard|demon)$"},
+      "additionalProperties": {"$ref": "#/$defs/bucket"}
+    },
+    "payloadIndex": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[124]s\\.(easy|medium|hard|demon)$"},
+      "additionalProperties": {"$ref": "#/$defs/indexEntry"}
+    },
+    "deals": {
+      "type": "array",
+      "items": {"$ref": "certified-seeds.schema.json#/$defs/deal"}
+    },
+    "totalEmbeddedCount": {"type": "integer", "minimum": 0},
+    "totalEncodedBytes": {"type": "integer", "minimum": 0}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "bucket": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled", "candidateScanBudget", "certifiedTarget", "embeddedTarget", "minimumPublishableCount", "allowEmptyBucket", "candidatesScanned", "candidateScanScope", "rawCertifiedCount", "actualCount", "embeddedCount", "encodedBytes"],
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "candidateScanBudget": {"type": "integer", "minimum": 0},
+        "certifiedTarget": {"type": "integer", "minimum": 0},
+        "embeddedTarget": {"type": "integer", "minimum": 0},
+        "minimumPublishableCount": {"type": "integer", "minimum": 0},
+        "allowEmptyBucket": {"type": "boolean"},
+        "candidatesScanned": {"type": "integer", "minimum": 0},
+        "candidateScanScope": {"enum": ["bucket", "shared-suit-pool", "disabled"]},
+        "sharedCandidateScanBudget": {"type": "integer", "minimum": 0},
+        "rawCertifiedCount": {"type": "integer", "minimum": 0},
+        "actualCount": {"type": "integer", "minimum": 0},
+        "embeddedCount": {"type": "integer", "minimum": 0},
+        "encodedBytes": {"type": "integer", "minimum": 0}
+      }
+    },
+    "indexEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["startOffset", "entryCount"],
+      "properties": {
+        "startOffset": {"type": "integer", "minimum": 0},
+        "entryCount": {"type": "integer", "minimum": 0}
+      }
+    }
+  }
+}

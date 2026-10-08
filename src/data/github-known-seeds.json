@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "purpose": "development-only external seed anchors for difficulty calibration",
+  "runtimeDataPolicy": "provenance-only; no upstream board, code, or fixture is redistributed",
+  "sources": [
+    {
+      "id": "solitairegdl-spider-example",
+      "repository": "iambb5445/SolitaireGDL",
+      "commit": "49e43ca5293688a5d1fd833099d1ae669bf88bc9",
+      "license": "NO LICENSE DECLARED",
+      "referencePath": "README.md and games/spider_family/spider.sgdl",
+      "referenceUrl": "https://github.com/iambb5445/SolitaireGDL/tree/49e43ca5293688a5d1fd833099d1ae669bf88bc9",
+      "seedKind": "documented-cli-example-and-default",
+      "seeds": ["0", "42"],
+      "upstreamSuitMode": 1,
+      "calibrationSuitModes": [1, 2]
+    },
+    {
+      "id": "credible-spider-example",
+      "repository": "tomwillow/Credible-Spider",
+      "commit": "60bb206fc1bc92ad4ca04778bfa1217aa950687c",
+      "license": "NO LICENSE DECLARED",
+      "referencePath": "src/1.txt",
+      "referenceUrl": "https://github.com/tomwillow/Credible-Spider/blob/60bb206fc1bc92ad4ca04778bfa1217aa950687c/src/1.txt",
+      "seedKind": "checked-in-solver-example",
+      "seeds": ["1060244078"],
+      "upstreamSuitMode": 1,
+      "calibrationSuitModes": [1, 2]
+    },
+    {
+      "id": "solitairellm-spider-dataset",
+      "repository": "iambb5445/SolitaireLLMBenchmark",
+      "commit": "d2fb67f516ecfc9d39a431576d635a912ca52c52",
+      "license": "UNVERIFIED",
+      "referencePath": "dataset/Training/Spider_DFSBot_1750825354_1000samples.json",
+      "referenceUrl": "https://github.com/iambb5445/SolitaireLLMBenchmark/blob/d2fb67f516ecfc9d39a431576d635a912ca52c52/dataset/Training/Spider_DFSBot_1750825354_1000samples.json",
+      "seedKind": "dataset-filename-generation-seed",
+      "seeds": ["1750825354"],
+      "upstreamSuitMode": 1,
+      "calibrationSuitModes": [1, 2]
+    },
+    {
+      "id": "solitairellm-spider-2s-dataset",
+      "repository": "iambb5445/SolitaireLLMBenchmark",
+      "commit": "d2fb67f516ecfc9d39a431576d635a912ca52c52",
+      "license": "UNVERIFIED",
+      "referencePath": "dataset/Training/Spider 2-Suits_DFSBot_1750735807_1000samples.json",
+      "referenceUrl": "https://github.com/iambb5445/SolitaireLLMBenchmark/blob/d2fb67f516ecfc9d39a431576d635a912ca52c52/dataset/Training/Spider%202-Suits_DFSBot_1750735807_1000samples.json",
+      "seedKind": "dataset-filename-generation-seed",
+      "seeds": ["1750735807"],
+      "upstreamSuitMode": 2,
+      "calibrationSuitModes": [1, 2]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:certified-spider:certified-seeds:v1-v2",
+  "title": "Certified Spider runtime seed payload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["payloadSchemaVersion", "seedLibraryVersion", "deals"],
+  "properties": {
+    "payloadSchemaVersion": {"enum": [1, 2]},
+    "seedLibraryVersion": {"type": "string", "minLength": 1},
+    "deals": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/deal"}
+    },
+    "tombstones": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/tombstone"}
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "deal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dealId", "canonicalSeed", "initialDealHash", "suitMode", "difficulty", "status"],
+      "properties": {
+        "dealId": {"$ref": "#/$defs/sha256"},
+        "canonicalSeed": {"type": "string", "pattern": "^u64:[0-9a-f]{16}$"},
+        "initialDealHash": {"$ref": "#/$defs/sha256"},
+        "suitMode": {"enum": [1, 2, 4]},
+        "difficulty": {"enum": ["easy", "medium", "hard", "demon"]},
+        "status": {"const": "active"}
+      }
+    },
+    "tombstone": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dealId", "status", "reasonCode", "effectiveLibraryVersion"],
+      "properties": {
+        "dealId": {"$ref": "#/$defs/sha256"},
+        "status": {"enum": ["active", "certified", "disabled", "superseded"]},
+        "reasonCode": {"type": "string", "minLength": 1},
+        "effectiveLibraryVersion": {"type": "string", "minLength": 1},
+        "disabledAt": {"type": "string", "format": "date-time"},
+        "supersededBy": {"$ref": "#/$defs/sha256"},
+        "classificationOverride": {"enum": ["easy", "medium", "hard", "demon"]}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "superseded"}}, "required": ["status"]},
+          "then": {"required": ["supersededBy"]},
+          "else": {"not": {"required": ["supersededBy"]}}
+        },
+        {
+          "if": {"properties": {"status": {"enum": ["active", "certified"]}}, "required": ["status"]},
+          "then": {"required": ["classificationOverride"]}
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"payloadSchemaVersion": {"const": 2}}, "required": ["payloadSchemaVersion"]},
+      "then": {"required": ["tombstones"]},
+      "else": {"properties": {"tombstones": {"maxItems": 0}}}
+    }
+  ]
+}

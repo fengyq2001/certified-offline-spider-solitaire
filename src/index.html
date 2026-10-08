@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-Hans" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#123d32">
+    <title>认证蜘蛛纸牌</title>
+    <link rel="stylesheet" href="./ui/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#tableau">跳到牌桌</a>
+    <div id="app" class="app-shell" aria-busy="true">
+      <header class="topbar" aria-label="游戏状态与牌局选择">
+        <div class="brand" aria-label="认证蜘蛛纸牌">
+          <span class="brand-mark" aria-hidden="true">♠</span>
+          <span class="brand-copy"><strong>蜘蛛纸牌</strong><small>认证牌局</small></span>
+        </div>
+
+        <div class="game-selectors">
+          <label class="compact-field"><span>花色</span>
+            <select id="suit-select" aria-label="选择花色数量">
+              <option value="1s">单花色</option>
+              <option value="2s">双花色</option>
+              <option value="4s">四花色</option>
+            </select>
+          </label>
+          <label class="compact-field"><span>难度</span>
+            <select id="difficulty-select" aria-label="选择难度">
+              <option value="easy">简单</option>
+              <option value="medium">中等</option>
+              <option value="hard">困难</option>
+              <option value="demon">恶魔</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="hud" aria-label="本局数据">
+          <div class="hud-item"><span>时间</span><output id="timer">00:00</output></div>
+          <div class="hud-item"><span>步数</span><output id="moves">0</output></div>
+          <div class="hud-item score"><span>得分</span><output id="score">0</output></div>
+        </div>
+
+        <div class="top-actions">
+          <button id="profile-button" class="profile-button" type="button" aria-haspopup="dialog">
+            <span class="avatar" aria-hidden="true">访</span><span id="profile-name">访客</span>
+          </button>
+          <button id="menu-button" class="icon-button" type="button" aria-label="打开设置" title="设置">⚙</button>
+        </div>
+      </header>
+
+      <div id="storage-banner" class="status-banner warning" role="status" hidden>
+        <span aria-hidden="true">⚠</span>
+        <span id="storage-message">当前浏览器无法可靠保存，正在使用临时模式。</span>
+        <button type="button" data-action="export">立即导出</button>
+        <button type="button" data-dismiss-banner aria-label="关闭提示">×</button>
+      </div>
+
+      <main class="game-surface">
+        <section class="board-meta" aria-label="牌局信息">
+          <div class="deal-identity">
+            <span id="difficulty-badge" class="badge">单花色 · 简单</span>
+            <button id="seed-button" class="seed-chip" type="button" title="复制牌局编号">
+              <span>牌局</span><code id="seed-display">等待选择</code>
+            </button>
+          </div>
+          <p id="game-message" class="game-message" role="status" aria-live="polite">正在载入认证牌局…</p>
+          <div class="completed-area" id="completed-area" aria-label="已完成牌组"></div>
+        </section>
+
+        <section id="tableau" class="tableau" aria-label="蜘蛛纸牌十列牌桌" aria-describedby="board-help"></section>
+
+        <section class="stock-row" aria-label="库存牌">
+          <button id="stock" class="stock" type="button" aria-describedby="stock-status">
+            <span class="card-back" aria-hidden="true"></span>
+            <span id="stock-status">剩余 0 轮</span>
+          </button>
+          <p id="board-help" class="board-help">点击或拖动同花色连续牌组；方向键导航，Enter 选择，空格发牌。</p>
+        </section>
+      </main>
+
+      <nav class="toolbar" aria-label="游戏操作">
+        <button type="button" data-action="new"><span aria-hidden="true">＋</span><span>新一局</span></button>
+        <button type="button" data-action="undo"><span aria-hidden="true">↶</span><span>撤销</span></button>
+        <button type="button" data-action="restart"><span aria-hidden="true">↻</span><span>重开</span></button>
+        <button type="button" data-action="hint"><span aria-hidden="true">✦</span><span>提示</span></button>
+        <button type="button" data-action="stats"><span aria-hidden="true">▥</span><span>统计</span></button>
+        <button type="button" data-action="settings"><span aria-hidden="true">⚙</span><span>设置</span></button>
+      </nav>
+
+      <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+    </div>
+
+    <dialog id="confirm-dialog" class="modal compact-modal" aria-labelledby="confirm-title">
+      <form method="dialog">
+        <header><h2 id="confirm-title">确认操作</h2></header>
+        <p id="confirm-message"></p>
+        <footer><button value="cancel" class="secondary">取消</button><button id="confirm-accept" value="confirm">确认</button></footer>
+      </form>
+    </dialog>
+
+    <dialog id="panel-dialog" class="modal panel-modal" aria-labelledby="panel-title">
+      <form method="dialog">
+        <header><div><p class="eyebrow">本地资料</p><h2 id="panel-title">设置</h2></div><button value="close" class="icon-button" aria-label="关闭">×</button></header>
+        <div id="panel-content" class="panel-content"></div>
+      </form>
+    </dialog>
+
+    <dialog id="resume-dialog" class="modal compact-modal" aria-labelledby="resume-title">
+      <form method="dialog">
+        <header><h2 id="resume-title">继续上次牌局？</h2></header>
+        <p>已找到当前用户尚未结束的认证牌局。</p>
+        <footer><button value="new" class="secondary">开始新局</button><button value="resume">继续</button></footer>
+      </form>
+    </dialog>
+
+    <input id="import-input" type="file" accept="application/json,.json" hidden>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
